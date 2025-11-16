@@ -1,0 +1,130 @@
+/* print.css */
+@page {
+    margin-bottom: 2%; 
+}
+
+@media print {
+    /* Supprimer nav et cookie */
+    nav,
+    .cookie-banner,
+    .back {
+        display: none;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    /* Supprimer les effets */
+    .philosopher::before,
+    .philosopher::after,
+    .philosopher:hover::before,
+    .philosopher:hover::after {
+        content: none;
+        display: none;
+        background: none;
+        box-shadow: none;
+    }
+
+    /* Réinitialiser body */
+    body {
+        margin: 0 2%;
+        padding: 0;
+    }
+
+    /* Main en haut */
+    main {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* intro  */
+    .intro p {
+        display: block;
+        margin: 0.05rem 0 0.05rem 0; 
+        padding: 0;
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+
+    .intro h1 {
+        margin: 0 0 0.1rem 0;
+        padding: 0;
+    }
+
+    /* Couleurs */
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Sauts de page */
+    .philosopher {
+        page-break-inside: avoid;
+    }
+
+    .philosophers {
+        page-break-before: avoid;
+    }
+    
+    /* Mise en page des philosophes en grille */
+    .philosophers {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+        gap: 0.6rem;
+    }
+
+    .philosopher {
+        padding: 0.6rem;
+        margin: 0 ;
+        min-height: auto;
+    }
+
+    .philosopher img {
+        
+        object-fit: cover;
+    }
+
+    .philosopher h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .philosopher p,
+    .philosopher .dates {
+        font-size: 0.85rem;
+        line-height: 1.25;
+        margin-bottom: 0.2rem;
+    }
+
+    /* Désactiver ::before et ::after */
+    .philosopher::before,
+    .philosopher::after {
+        content: none;
+        display: none;
+    }
+
+    
+    /* Supprimer hover */
+    .philo img {
+        height: auto ;      
+        width: 100% ;       
+        object-fit: contain ; 
+        transform: none ;    
+        box-shadow: none ;   
+    }
+
+    .philo img:hover {
+        transform: none ;   
+        box-shadow: none;
+    }
+
+    /* Supprimer animations */
+    .philo p::before,
+    .philo p::after {
+        content: none ;
+        display: none ;
+    }
+
+    
+}
